@@ -13,12 +13,12 @@ static float C[M][K];
 int main(){
     for (size_t i = 0; i < M; i++) {
         for (size_t j = 0; j < N; j++) {
-            A[i][j] = 1.0f;
+            A[i][j] = i;
     }
     }
     for (size_t i = 0; i < M; i++) {
         for (size_t j = 0; j < N; j++) {
-            B[i][j] = 1.0f;
+            B[i][j] = i;
         }
     }
 
