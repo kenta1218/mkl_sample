@@ -10,6 +10,12 @@ static float A[M][N];
 static float B[N][K];
 static float C[M][K];
 
+template <size_t M, size_t N, size_t K>
+void dot(float (&a)[M][N], float (&b)[N][K], float (&result)[M][K]) {
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              M, K, N, 1.0, *a, N, *b, K, 0.0, *result, K);
+}
+
 int main(){
     for (size_t i = 0; i < M; i++) {
         for (size_t j = 0; j < N; j++) {
@@ -22,8 +28,7 @@ int main(){
         }
     }
 
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
-                M, K, N, 1.0, *A, N, *B, K, 0.0, *C, K);
+    dot(A, B, C);
 
     // for (size_t i = 0; i < M; i++) {
     //     for (size_t j = 0; j < K; j++) {
