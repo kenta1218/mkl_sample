@@ -1,5 +1,5 @@
-// #include "mkl.h"
-#include <cblas.h>
+#include "mkl.h"
+// #include <cblas.h>
 #include <cstdio>
 
 const size_t M = 1000;
